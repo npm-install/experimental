@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { auth } from '../helpers/auth';
 
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
+// import RaisedButton from 'material-ui/RaisedButton';
+// import TextField from 'material-ui/TextField';
 
 function setErrorMsg(error) {
   return {
@@ -30,12 +30,23 @@ export default class Register extends Component {
     return (
       <form onSubmit={this.handleSubmit} style={style.container}>
         <h3>Register</h3>
+        {/* <TextField
+          hintText="Enter your Email"
+          floatingLabelText="Email"
+          onChange={(event, newValue) => this.setState({ email: newValue })}
+        /> */}
         <TextField
           hintText="Enter your Email"
           floatingLabelText="Email"
           onChange={(event, newValue) => this.setState({ email: newValue })}
         />
         <br />
+        {/* <TextField
+          type="password"
+          hintText="Enter your Password"
+          floatingLabelText="Password"
+          onChange={(event, newValue) => this.setState({ password: newValue })}
+        /> */}
         <TextField
           type="password"
           hintText="Enter your Password"
@@ -53,6 +64,12 @@ export default class Register extends Component {
             &nbsp;{this.state.registerError}
           </div>
         )}
+        {/* <RaisedButton
+          label="Register"
+          primary={true}
+          style={style.raisedBtn}
+          type="submit"
+        /> */}
         <RaisedButton
           label="Register"
           primary={true}
@@ -64,15 +81,16 @@ export default class Register extends Component {
   }
 }
 
-const raisedBtn = {
-  margin: 15
-};
+// Legacy from Material UI -- to be removed when Bulma is added
+// const raisedBtn = {
+//   margin: 15
+// };
 
-const container = {
-  textAlign: 'center'
-};
+// const container = {
+//   textAlign: 'center'
+// };
 
-const style = {
-  raisedBtn,
-  container
-};
+// const style = {
+//   raisedBtn,
+//   container
+// };

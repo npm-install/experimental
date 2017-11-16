@@ -6,8 +6,8 @@ import Home from './Home';
 import Dashboard from './protected/Dashboard';
 import { logout } from '../helpers/auth';
 import { firebaseAuth } from '../config/constants';
-import AppBar from 'material-ui/AppBar';
-import FlatButton from 'material-ui/FlatButton';
+// import AppBar from 'material-ui/AppBar';
+// import FlatButton from 'material-ui/FlatButton';
 
 function PrivateRoute({ component: Component, authed, ...rest }) {
   return (
@@ -64,6 +64,13 @@ export default class App extends Component {
   }
   render() {
     const authButtons = this.state.authed ? (
+      // <FlatButton
+      //   label="Logout"
+      //   onClick={() => {
+      //     logout();
+      //   }}
+      //   style={{ color: '#fff' }}
+      // />
       <FlatButton
         label="Logout"
         onClick={() => {
@@ -74,9 +81,11 @@ export default class App extends Component {
     ) : (
       <span>
         <Link to="/login">
+          {/* <FlatButton label="Login" style={{ color: '#fff' }} /> */}
           <FlatButton label="Login" style={{ color: '#fff' }} />
         </Link>
         <Link to="/register">
+          {/* <FlatButton label="Register" style={{ color: '#fff' }} /> */}
           <FlatButton label="Register" style={{ color: '#fff' }} />
         </Link>
       </span>
@@ -85,9 +94,11 @@ export default class App extends Component {
     const topbarButtons = (
       <div>
         <Link to="/">
+          {/* <FlatButton label="Home" style={{ color: '#fff' }} /> */}
           <FlatButton label="Home" style={{ color: '#fff' }} />
         </Link>
         <Link to="/dashboard">
+          {/* <FlatButton label="dashboard" style={{ color: '#fff' }} /> */}
           <FlatButton label="dashboard" style={{ color: '#fff' }} />
         </Link>
         {authButtons}
@@ -98,6 +109,15 @@ export default class App extends Component {
     ) : (
       <BrowserRouter>
         <div>
+          {/* <AppBar
+            title="summaries.io"
+            iconElementRight={topbarButtons}
+            iconStyleRight={{
+              display: 'flex',
+              alignItems: 'center',
+              marginTop: '0'
+            }}
+          /> */}
           <AppBar
             title="summaries.io"
             iconElementRight={topbarButtons}
