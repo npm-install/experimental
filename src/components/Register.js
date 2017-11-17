@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { auth } from '../helpers/auth';
+import { Input, Button } from 'reactbulma';
 
 // import RaisedButton from 'material-ui/RaisedButton';
 // import TextField from 'material-ui/TextField';
@@ -35,11 +36,8 @@ export default class Register extends Component {
           floatingLabelText="Email"
           onChange={(event, newValue) => this.setState({ email: newValue })}
         /> */}
-        <TextField
-          hintText="Enter your Email"
-          floatingLabelText="Email"
-          onChange={(event, newValue) => this.setState({ email: newValue })}
-        />
+        <label htmlFor="normal">Email</label>
+        <Input type="email" onChange={(event) => this.setState({ email: event.target.value })} />
         <br />
         {/* <TextField
           type="password"
@@ -47,12 +45,8 @@ export default class Register extends Component {
           floatingLabelText="Password"
           onChange={(event, newValue) => this.setState({ password: newValue })}
         /> */}
-        <TextField
-          type="password"
-          hintText="Enter your Password"
-          floatingLabelText="Password"
-          onChange={(event, newValue) => this.setState({ password: newValue })}
-        />
+        <label htmlFor="normal">Password</label>
+        <Input onChange={(event, newValue) => this.setState({ password: newValue })} />
         <br />
         {this.state.registerError && (
           <div className="alert alert-danger" role="alert">
@@ -70,27 +64,22 @@ export default class Register extends Component {
           style={style.raisedBtn}
           type="submit"
         /> */}
-        <RaisedButton
-          label="Register"
-          primary={true}
-          style={style.raisedBtn}
-          type="submit"
-        />
+        <Button type="submit">Register</Button>
       </form>
     );
   }
 }
 
 // Legacy from Material UI -- to be removed when Bulma is added
-// const raisedBtn = {
-//   margin: 15
-// };
+const raisedBtn = {
+  margin: 15
+};
 
-// const container = {
-//   textAlign: 'center'
-// };
+const container = {
+  textAlign: 'center'
+};
 
-// const style = {
-//   raisedBtn,
-//   container
-// };
+const style = {
+  raisedBtn,
+  container
+};

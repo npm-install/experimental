@@ -3,6 +3,7 @@ import { login, resetPassword } from '../helpers/auth';
 
 // import RaisedButton from 'material-ui/RaisedButton';
 // import TextField from 'material-ui/TextField';
+import { Button, Input } from 'reactbulma';
 
 function setErrorMsg(error) {
   return {
@@ -36,24 +37,29 @@ export default class Login extends Component {
       .catch(error => this.setState(setErrorMsg(`Email address not found.`)));
   };
   render() {
+    console.log(this.state);
     return (
       <form
         style={style.container}
         onSubmit={event => this.handleSubmit(event)}
       >
         <h3>Login</h3>
-        <TextField
+        {/* <TextField
           hintText="Enter your Email"
           floatingLabelText="Email"
           onChange={(event, newValue) => this.setState({ email: newValue })}
-        />
+        /> */}
+        <label htmlFor="normal">Email</label>
+        <Input onChange={(event) => this.setState({ email: event.target.value })} />
         <br />
-        <TextField
+        {/* <TextField
           type="password"
           hintText="Enter your Password"
           floatingLabelText="Password"
           onChange={(event, newValue) => this.setState({ password: newValue })}
-        />
+        /> */}
+        <label htmlFor="normal">Password</label>
+        <Input type="password" onChange={(event) => this.setState({ password: event.target.value })} />
         <br />
         {this.state.loginMessage && (
           <div className="alert alert-danger" role="alert">
@@ -68,17 +74,19 @@ export default class Login extends Component {
             </a>
           </div>
         )}
-        <RaisedButton
+        {/* <RaisedButton
           label="Login"
           primary={true}
           style={style.raisedBtn}
           type="submit"
-        />
+        /> */}
+        <Button type="submit">Login</Button>
       </form>
     );
   }
 }
 
+// Legacy from Material UI -- to be removed when Bulma is added
 const raisedBtn = {
   margin: 15
 };
